@@ -7,9 +7,9 @@
 <body>
 
 <div class="container">
-    <form class="form" method="POST">
-        
-        <h2>DPS</h2>
+    <form class="form" method="POST" action="/login">
+        @csrf
+        <h2>DZĪVOKĻU PĀRVALDĪBAS SISTĒMA</h2>
 
         <div class="input">
             <label>E-pasts</label>

@@ -7,9 +7,9 @@
 <body>
 
 <div class="container">
-    <form class="form" method="POST">
-        
-        <h2>DPS</h2>
+    <form class="form" method="POST" action="/register">
+        @csrf
+        <h2>DZĪVOKĻU PĀRVALDĪBAS SISTĒMA</h2>
 
         <div class="input">
             <label>E-pasts</label>
@@ -19,14 +19,6 @@
         <div class="input">
             <label>Parole</label>
             <input type="password" name="password" required>
-        </div>
-
-        <div class="input">
-            <label>Veids</label>
-            <select name="role" required>
-                <option value="iretajs">Īrētājs</option>
-                <option value="iziretajs">Izīrētājs</option>
-            </select>
         </div>
 
         <button type="submit" class="button">Registreties</button>
