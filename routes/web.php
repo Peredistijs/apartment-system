@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('login');
@@ -14,9 +15,9 @@ Route::get('/register', function () {
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/home', function () {
-    return 'Tests login';
-})->middleware('auth');
+
+Route::get('/home', [HomeController::class, 'home'])
+    ->middleware('auth');
 
 Route::post('/logout', function () {
     auth()->logout();
