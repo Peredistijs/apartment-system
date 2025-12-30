@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\ReadingsController;
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('login');
@@ -26,6 +27,15 @@ Route::get('/apartments', [ApartmentController::class, 'home'])
     ->middleware('auth');
 
 Route::get('/readings', [ReadingsController::class, 'home'])
+    ->middleware('auth');
+
+Route::get('/profile', [ProfileController::class, 'home'])
+    ->middleware('auth');
+
+Route::put('/profile', [ProfileController::class, 'edit'])
+    ->middleware('auth');
+
+Route::delete('/profile', [ProfileController::class, 'delete'])
     ->middleware('auth');
 
 Route::post('/logout', function () {

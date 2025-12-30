@@ -19,6 +19,7 @@ class AuthController extends Controller
         User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'resident', //noklusejums
         ]);
 
         return redirect('/')->with('success', 'Konts izveidots!');

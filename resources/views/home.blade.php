@@ -14,7 +14,7 @@
 
     <div style="display:flex; gap:20px;">
         <a href="#">Ziņas</a>
-        <a href="#">Profils</a>
+        <a href="/profile">Profils</a>
 
         <form method="POST" action="/logout">
             @csrf
