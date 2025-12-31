@@ -15,17 +15,17 @@
 
         <div style="margin-bottom:15px; text-align:left;">
             <label>Vārds</label>
-            <input type="text" name="first_name" value="{{ auth()->user()->first_name }}" style="width:100%; padding:8px;">
+            <input type="text" name="first_name" value="{{ auth()->user()->first_name }}" style="width:100%; padding:8px;" required>
         </div>
 
         <div style="margin-bottom:15px; text-align:left;">
             <label>Uzvārds</label>
-            <input type="text" name="last_name" value="{{ auth()->user()->last_name }}" style="width:100%; padding:8px;">
+            <input type="text" name="last_name" value="{{ auth()->user()->last_name }}" style="width:100%; padding:8px;" required>
         </div>
 
         <div style="margin-bottom:15px; text-align:left;">
             <label>Personas kods</label>
-            <input type="text" name="personal_code" value="{{ auth()->user()->personal_code }}" style="width:100%; padding:8px;">
+            <input type="text" name="personal_code" value="{{ auth()->user()->personal_code }}" style="width:100%; padding:8px;" required>
         </div>
 
         <div style="margin-bottom:25px; text-align:left;">
