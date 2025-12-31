@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body style="background-color:#e6f2ff;">
+@extends('layouts.layout')
 
-<!-- top menu -->
-<nav style="display:flex; justify-content:space-between; padding:15px;">
-    <div>
-        <h1>DPS</h1>
-    </div>
+@section('title', 'Home')
 
-    <div style="display:flex; gap:20px;">
-        <a href="#">Ziņas</a>
-        <a href="/profile">Profils</a>
+@section('content')
+<div style="text-align:center;">
 
-        <form method="POST" action="/logout">
-            @csrf
-            <button type="submit">Iziet</button>
-        </form>
-    </div>
-</nav>
-
-<!-- galvenaa -->
-<main style="text-align:center; margin-top:60px;">
-
-    <h1 style="font-size:150px;">DPS</h1>
+    <h1 style="font-size:100px;">DPS</h1>
 
     <div style="margin-top:40px; display:flex; flex-direction:column; align-items:center; gap:30px;">
         <a href="/apartments" style="padding:30px 200px; border:1px solid #000; background-color: #ffffff">
@@ -38,7 +17,6 @@
         </a>
     </div>
 
-</main>
+</div>
 
-</body>
-</html>
+@endsection

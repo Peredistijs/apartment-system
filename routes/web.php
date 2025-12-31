@@ -19,24 +19,19 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
 
+Route::middleware('auth')->group(function (){
 
-Route::get('/home', [HomeController::class, 'home'])
-    ->middleware('auth');
+    Route::get('/home', [HomeController::class, 'home']);
 
-Route::get('/apartments', [ApartmentController::class, 'home'])
-    ->middleware('auth');
+    Route::get('/apartments', [ApartmentController::class, 'home']);
 
-Route::get('/readings', [ReadingsController::class, 'home'])
-    ->middleware('auth');
+    Route::get('/readings', [ReadingsController::class, 'home']);
 
-Route::get('/profile', [ProfileController::class, 'home'])
-    ->middleware('auth');
+    Route::get('/profile', [ProfileController::class, 'home']);
+    Route::put('/profile', [ProfileController::class, 'edit']);
+    Route::delete('/profile', [ProfileController::class, 'delete']);
 
-Route::put('/profile', [ProfileController::class, 'edit'])
-    ->middleware('auth');
-
-Route::delete('/profile', [ProfileController::class, 'delete'])
-    ->middleware('auth');
+});
 
 Route::post('/logout', function () {
     auth()->logout();

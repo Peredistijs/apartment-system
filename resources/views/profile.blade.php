@@ -1,58 +1,59 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-    <meta charset="UTF-8">
-    <title>Profils</title>
-</head>
-<body style="background-color:#e6f2ff;">
+@extends('layouts.layout')
 
-<h2>Profils</h2>
+@section('title', 'Profils')
 
+@section('content')
+<div style="text-align:center;">
 
-<form method="POST" action="/profile">
-    @csrf
-    @method('PUT')
+    <h2>Profils</h2>
 
-    <div>
-        <label>Vārds</label>
-        <input type="text" name="first_name" value="{{ auth()->user()->first_name }}">
-    </div>
+    <!-- Update profile -->
 
-    <div>
-        <label>Uzvārds</label>
-        <input type="text" name="last_name" value="{{ auth()->user()->last_name}}">
-    </div>
+    <form method="POST" action="/profile" style="background:#ffffff; padding:40px; width:400px; margin:30px auto; border:1px solid #000;">
+        @csrf
+        @method('PUT')
 
-    <div>
-        <label>Personas kods</label>
-        <input type="text" name="personal_code" value="{{ auth()->user()->personal_code}}">
-    </div>
+        <div style="margin-bottom:15px; text-align:left;">
+            <label>Vārds</label>
+            <input type="text" name="first_name" value="{{ auth()->user()->first_name }}" style="width:100%; padding:8px;">
+        </div>
 
-    <div>
-        <label>E-pasts</label>
-        <input type="email" name="email" value="{{ auth()->user()->email }}" required>
-    </div>
+        <div style="margin-bottom:15px; text-align:left;">
+            <label>Uzvārds</label>
+            <input type="text" name="last_name" value="{{ auth()->user()->last_name }}" style="width:100%; padding:8px;">
+        </div>
 
-    <button type="submit">Saglabāt</button>
-    
-</form>
+        <div style="margin-bottom:15px; text-align:left;">
+            <label>Personas kods</label>
+            <input type="text" name="personal_code" value="{{ auth()->user()->personal_code }}" style="width:100%; padding:8px;">
+        </div>
 
-<hr>
+        <div style="margin-bottom:25px; text-align:left;">
+            <label>E-pasts</label>
+            <input type="email" name="email" value="{{ auth()->user()->email }}" style="width:100%; padding:8px;" required>
+        </div>
 
+        <button type="submit" style="padding:12px 35px; border:1px solid #000; background:#ffffff; cursor:pointer;">
+            Saglabāt
+        </button>
+    </form>
 
-<form method="POST" action="/profile">
-    @csrf
-    @method('DELETE')
+    <h2>Profila dzēšana</h2>
 
-    <div>
-        <label>Parole (apstiprināšanai)</label>
-        <input type="password" name="password" required>
-    </div>
+    <!-- deleete -->
+    <form method="POST" action="/profile" style="background:#ffffff; padding:40px; width:400px; margin:0 auto; border:1px solid #000;">
+        @csrf
+        @method('DELETE')
 
-    <button type="submit" style="color:red;">
-        Dzēst kontu
-    </button>
-</form>
+        <div style="margin-bottom:20px; text-align:left;">
+            <label>Parole (apstiprināšanai)</label>
+            <input type="password" name="password" style="width:100%; padding:8px;" required>
+        </div>
 
-</body>
-</html>
+        <button type="submit" style="padding:12px 35px; border:1px solid red; background:#ffffff; color:red; cursor:pointer;">
+            Dzēst kontu
+        </button>
+    </form>
+
+</div>
+@endsection
