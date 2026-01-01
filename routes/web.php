@@ -31,6 +31,17 @@ Route::middleware('auth')->group(function (){
     Route::put('/profile', [ProfileController::class, 'edit']);
     Route::delete('/profile', [ProfileController::class, 'delete']);
 
+    Route::get('/apartments/create', [ApartmentController::class, 'create']);
+    Route::post('/apartments', [ApartmentController::class, 'store']);
+    Route::get('/apartments/list', [ApartmentController::class, 'list']);
+
+    Route::get('/apartments/{apartment}/edit', [ApartmentController::class, 'edit']);
+    Route::put('/apartments/{apartment}', [ApartmentController::class, 'update']);
+    Route::delete('/apartments/{apartment}', [ApartmentController::class, 'delete']);
+
+    Route::put('/apartments/{apartment}/assign-resident', [ApartmentController::class, 'assignResident']);
+    Route::put('/apartments/{apartment}/remove-resident', [ApartmentController::class, 'removeResident']);
+
 });
 
 Route::post('/logout', function () {
