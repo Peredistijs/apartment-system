@@ -22,4 +22,9 @@ class Apartment extends Model
     {
         return $this->belongsTo(User::class, 'resident_id');
     }
+
+    public function meter()
+    {
+        return $this->hasOne(Meter::class);
+    }
 }

@@ -10,7 +10,7 @@
 
     <form method="POST" action="/register" style="background:#ffffff; padding:40px; width:400px; margin:0 auto; border:2px solid #000;">
         @csrf
-        <h2 style="margin-bottom:30px;">DZĪVOKĻU PĀRVALDĪBAS SISTĒMA</h2>
+        <h2 style="margin-bottom:30px;">Reģistrēties</h2>
 
         <div style="margin-bottom:15px; text-align:left;">
             <label>E-pasts</label>
