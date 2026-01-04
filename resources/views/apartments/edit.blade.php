@@ -52,7 +52,7 @@
     <form method="POST" action="/apartments/{{ $apartment->id }}/remove-resident" style="background:#fff; padding:30px; width:400px; margin:30px auto; border:1px solid red;">
         @csrf
         @method('PUT')
-        <button type="submit" style="padding:12px 35px; border:1px solid red; background:#fff; color:red; cursor:pointer;">
+        <button type="submit" onclick="return confirm('Vai tiešām vēlaties atvienot īrnieku?')" style="padding:12px 35px; border:1px solid red; background:#fff; color:red; cursor:pointer;">
             Noņemt īrnieku
         </button>
     </form>
@@ -62,7 +62,7 @@
     <form method="POST" action="/apartments/{{ $apartment->id }}" style="background:#fff; padding:30px; width:400px; margin:30px auto; border:1px solid red;">
         @csrf
         @method('DELETE')
-        <button type="submit" style="padding:12px 35px; border:1px solid red; background:#fff; color:red; cursor:pointer;">
+        <button type="submit" onclick="return confirm('Vai tiešām vēlaties dzēst dzīvokli?')" style="padding:12px 35px; border:1px solid red; background:#fff; color:red; cursor:pointer;">
             Izdzēst dzīvokli
         </button>
     </form>

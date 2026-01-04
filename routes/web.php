@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\ReadingsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MeterController;
 
 Route::get('/', function () {
     return view('login');
@@ -41,7 +42,16 @@ Route::middleware('auth')->group(function (){
 
     Route::put('/apartments/{apartment}/assign-resident', [ApartmentController::class, 'assignResident']);
     Route::put('/apartments/{apartment}/remove-resident', [ApartmentController::class, 'removeResident']);
+    
+    Route::get('/apartments/{apartment}/meter/create', [MeterController::class, 'create']); //dont need this in current design
+    Route::post('/apartments/{apartment}/meter', [MeterController::class, 'store']);
+    Route::get('/apartments/{apartment}/meter/add', [MeterController::class, 'add']);
+    Route::delete('/meters/{meter}', [MeterController::class, 'delete']);
 
+    Route::post('/meter/{meter}/readings', [ReadingController::class, 'store']);
+    Route::put('/readings/{reading}/status', [ReadingController::class, 'updateStatus']);
+
+    
 });
 
 Route::post('/logout', function () {

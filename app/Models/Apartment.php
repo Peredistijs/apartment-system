@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
 {
+
     protected $fillable = [
         'address',
         'apartment_number',
@@ -25,6 +26,6 @@ class Apartment extends Model
 
     public function meter()
     {
-        return $this->hasOne(Meter::class);
+        return $this->hasMany(Meter::class);
     }
 }
