@@ -30,24 +30,25 @@
                         <div style="margin-bottom:10px;">
                             <strong>Sākuma rādījums:</strong> {{ $meter->starting_reading }}
                         </div>
+                        @if ($apartment->owner_id === auth()->id())
+                            <div style="display:flex; gap:12px; align-items:center;">
+                                <a href="/meters/{{ $meter->id }}/readings" style="padding:6px 14px; border:1px solid #000; text-decoration:none;">
+                                    Rādījumi
+                                </a>
 
-                        <div style="display:flex; gap:12px; align-items:center;">
-                            <a href="/meters/{{ $meter->id }}/readings" style="padding:6px 14px; border:1px solid #000; text-decoration:none;">
-                                Rādījumi
-                            </a>
-
-                            <form action="/meters/{{ $meter->id }}" method="POST" style="margin:0;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="return confirm('Vai tiešām vēlaties dzēst skaitītāju?')" style="padding:6px 14px; border:1px solid red; background:#fff; color:red; cursor:pointer;">
-                                    Dzēst
-                                </button>
-                            </form>
-                        </div>
+                                <form action="/meters/{{ $meter->id }}" method="POST" style="margin:0;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="return confirm('Vai tiešām vēlaties dzēst skaitītāju?')" style="padding:6px 14px; border:1px solid red; background:#fff; color:red; cursor:pointer;">
+                                        Dzēst
+                                    </button>
+                                </form>
+                            </div>
+                        @endif
                         <hr style="margin-top:16px; border:0; border-top:1px solid #000;">
 
                     </li>
-@endforeach
+                @endforeach
             </ul>
             @else
                 <p style="color:red;">Nav pievienots neviens skaitītājs</p>

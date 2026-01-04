@@ -25,7 +25,7 @@ class Meter extends Model
         return $this->hasMany(Reading::class);
     }
 
-    public function getTypeLvAttribute() //returns meter type in latvian (english in DB)
+    public function getTypeLvAttribute() //returns meter type in blade in latvian (english in DB)
     {
         return match ($this->type) {
             'Water' => 'Ūdens',

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApartmentController;
-use App\Http\Controllers\ReadingsController;
+use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MeterController;
 
@@ -26,8 +26,6 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/apartments', [ApartmentController::class, 'home']);
 
-    Route::get('/readings', [ReadingsController::class, 'home']);
-
     Route::get('/profile', [ProfileController::class, 'home']);
     Route::put('/profile', [ProfileController::class, 'edit']);
     Route::delete('/profile', [ProfileController::class, 'delete']);
@@ -48,8 +46,13 @@ Route::middleware('auth')->group(function (){
     Route::get('/apartments/{apartment}/meter/add', [MeterController::class, 'add']);
     Route::delete('/meters/{meter}', [MeterController::class, 'delete']);
 
-    Route::post('/meter/{meter}/readings', [ReadingController::class, 'store']);
+    //owner
+    Route::get('/meters/{meter}/readings', [ReadingController::class, 'show']);
     Route::put('/readings/{reading}/status', [ReadingController::class, 'updateStatus']);
+
+    //resident
+    Route::get('/readings', [ReadingController::class, 'home']);
+    Route::post('/readings/store', [ReadingController::class, 'store']);
 
     
 });
