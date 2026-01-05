@@ -46,14 +46,16 @@ Route::middleware('auth')->group(function (){
     Route::get('/apartments/{apartment}/meter/add', [MeterController::class, 'add']);
     Route::delete('/meters/{meter}', [MeterController::class, 'delete']);
 
-    //owner
+    //owner readings
     Route::get('/meters/{meter}/readings', [ReadingController::class, 'show']);
     Route::put('/readings/{reading}/status', [ReadingController::class, 'updateStatus']);
 
-    //resident
+    //resident readings
     Route::get('/readings', [ReadingController::class, 'home']);
     Route::post('/readings/store', [ReadingController::class, 'store']);
 
+    //export
+    Route::get('/apartments/{apartment}/readings/export', [ReadingController::class, 'exportReadings']);
     
 });
 

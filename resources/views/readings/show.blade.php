@@ -28,7 +28,12 @@
                     <button type="submit" style="padding:6px 14px; border:1px solid #000; background:#fff; cursor:pointer;">Saglabāt</button>
                 </form>
             </div>
+
+            
         @endforeach
+        <a href="/apartments/{{ $meter->apartment->id }}/readings/export" style="padding:6px 14px; border:1px solid #000; text-decoration:none; margin-left:10px;">
+                Eksportēt rādījumus
+        </a>
 
 </div>
 @endsection

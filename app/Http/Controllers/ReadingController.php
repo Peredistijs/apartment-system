@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Reading;
 use App\Models\Meter;
 use App\Models\Apartment;
+use App\Exports\ReadingsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReadingController extends Controller
 {
@@ -61,5 +63,17 @@ class ReadingController extends Controller
         $reading->save();
 
         return redirect()->back()->with('success', 'Rādījuma statuss atjaunināts!');
+    }
+
+    public function exportReadings($apartmentId)
+    {
+        $apartment = Apartment::findOrFail($apartmentId);
+
+        if ($apartment->owner_id !== auth()->id()) {
+            return redirect()->back()->withErrors('Nav atļauts');
+        }
+
+        $fileName = 'readings_apartment_'.$apartment->id.'.xlsx';
+        return Excel::download(new ReadingsExport($apartment->id), $fileName);
     }
 }
