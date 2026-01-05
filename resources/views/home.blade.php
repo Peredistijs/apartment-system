@@ -15,6 +15,12 @@
         <a href="/readings" style="padding:20px 200px; border:1px solid #000; background-color: #ffffff">
             Rādījumi
         </a>
+
+        @if(auth()->check() && auth()->user()->role === 'admin')
+            <a href="/admin/apartments" style="padding:20px 200px; border:1px solid #000; background-color: #ffffff">
+                Admin dzīvokļi
+            </a>
+        @endif
     </div>
 
 </div>

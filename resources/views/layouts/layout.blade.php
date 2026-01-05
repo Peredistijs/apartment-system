@@ -6,8 +6,6 @@
 </head>
 <body style="background-color:#e4f0f4; margin:0; font-family:Arial, sans-serif;">
 
-//#e6f2ff
-
 <!-- top menu -->
 <nav style="display:flex; justify-content:space-between; padding:15px;">
     <div>

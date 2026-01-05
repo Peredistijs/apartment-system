@@ -7,6 +7,7 @@ use App\Http\Controllers\ApartmentController;
 use App\Http\Controllers\ReadingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MeterController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('login');
@@ -56,6 +57,20 @@ Route::middleware('auth')->group(function (){
 
     //export
     Route::get('/apartments/{apartment}/readings/export', [ReadingController::class, 'exportReadings']);
+
+
+    //admin users 
+    Route::get('/admin/users', [AdminController::class, 'uhome']);
+    Route::get('/admin/users/{user}/edit', [AdminController::class, 'editUser']);
+    Route::put('/admin/users/{user}', [AdminController::class, 'updateUser']);
+    Route::delete('/admin/users/{user}', [AdminController::class, 'udelete']);
+    
+    //admin apartments
+    Route::get('/admin/apartments', [AdminController::class, 'ahome']);
+    Route::get('/admin/apartments/{apartment}/edit', [AdminController::class, 'editApartment']);
+    Route::put('/admin/apartments/{apartment}', [AdminController::class, 'updateApartment']);
+    Route::delete('/admin/apartments/{apartment}', [AdminController::class, 'adelete']);
+    
     
 });
 
