@@ -58,4 +58,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Apartment::class, 'resident_id');
     }
+
+    public function getRoleLvAttribute() //converts roles to latvian in blade
+    {
+        return match ($this->role) {          
+            'resident' => 'Īrnieks',
+            'owner' => 'Izīrētājs',
+            'admin' => 'Admins',
+            default => $this->role,
+        };
+    }
 }

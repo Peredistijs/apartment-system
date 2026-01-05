@@ -21,6 +21,12 @@
                 Admin dzīvokļi
             </a>
         @endif
+
+        @if(auth()->check() && auth()->user()->role === 'admin')
+            <a href="/admin/users" style="padding:20px 200px; border:1px solid #000; background-color: #ffffff">
+                Admin lietotāji
+            </a>
+        @endif
     </div>
 
 </div>
